@@ -15,6 +15,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/styles.css' %}"  rel="stylesheet" />
+        <link href="{% static 'css1/css_cart.css' %}"  rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
     <body>
@@ -32,6 +33,7 @@
                             <a class="nav-link dropdown-toggle text-primary" id="navbarDropdown" href="{% url 'product_all' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-shopping-bag"></i> Store
                             </a>
+                
                             <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{% url 'product_all' %}"><i class="fas fa-box"></i> All Products</a></li>
                                 <li><hr class="dropdown-divider" /></li>
@@ -39,23 +41,28 @@
                                 <li><a class="dropdown-item" href="{{cat.get_url}}"><i class="fas fa-box"></i>{{cat.category_name}}</a></li>
                                 {% endfor%}
                             </ul>
-                        </li>                        
+                        </li>
+                        <li style="margin-left: 50px;width: 500px;">
+                            <form class="d-flex me-lg-5 input-group" action="" method="get">
+                                <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success btn-sm" type="submit"><i class="bi bi-search"></i></button>
+                            </form>
+                        </li>                     
                     </ul>
-                    
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                        <button class="btn btn-outline-secondary" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-secondary text-white ms-1 rounded-pill">0</span>
                         </button>
                     </form>
+                    <a class="btn btn-outline-secondary ms-1" href="{% url 'login' %}">
+                        <i class="bi bi-person-circle"></i> Login
+                    </a>
                 </div>
             </div>
         </nav>
 {%block content%}
-
-
-
 {% endblock%}
 
 

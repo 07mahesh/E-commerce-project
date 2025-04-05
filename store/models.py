@@ -10,7 +10,8 @@ class product(models.Model):
     image=models.ImageField(upload_to='images')
     stock=models.IntegerField()
     is_avalible=models.BooleanField(default=True)
-    category=models.ForeignKey(category,on_delete=models.CASCADE)
+    category=models.ForeignKey(category,on_delete=models.CASCADE,related_name="products")
+    related_products = models.ManyToManyField('self', blank=True, symmetrical=False, related_name="related_to")
     created_date=models.DateTimeField(auto_now_add=True)
     modified_date=models.DateTimeField(auto_now=True)
 
