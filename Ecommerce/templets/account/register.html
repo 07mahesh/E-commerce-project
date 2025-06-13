@@ -13,6 +13,14 @@
             <form method="post" action="">
                 {% csrf_token %}
                 <div class="mb-3">
+                    <label for="firstname" class="form-label">firstname</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lastame" class="form-label">lastname</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" required>
+                </div>
+                <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                 </div>
@@ -23,6 +31,10 @@
                 <div class="mb-3">
                     <label for="password1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password1" name="password1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Type of User/admin</label>
+                    <input type="role" class="form-control" id="" name="" required>
                 </div>
                 <div class="mb-3">
                     <label for="password2" class="form-label">Confirm Password</label>

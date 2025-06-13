@@ -1,0 +1,10 @@
+<h2>Search Results for "{{ product_name }}"</h2>
+<ul>
+    {% for item in results %}
+        <li>{{ item.name }}</li>
+    {% empty %}
+        <li>No results found.</li>
+    {% endfor %}
+</ul>
+
+

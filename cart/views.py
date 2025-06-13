@@ -34,11 +34,16 @@ from cart.models import Cart,CartItem
 #             cart_item.save()
 #         return redirect('cart') 
 
+
+
+
+
 def _cart_id(request):
     cart = request.session.session_key
     if not cart:
         cart = request.session.create()
     return cart
+
 
 def add_cart(request, product_id):
     product_cart = product.objects.get(id=product_id)  # Correct field
@@ -59,10 +64,6 @@ def add_cart(request, product_id):
     return redirect('cart')
 
 
-
-
-
-
 def remove_cart(request, product_id):
     cart, created = Cart.objects.get_or_create(cart_id=_cart_id(request))
     product_cart = product.objects.get(id=product_id)  # Fetch the product
@@ -75,9 +76,6 @@ def remove_cart(request, product_id):
         cart_item.delete()
     
     return redirect('cart')
-
-
-
 
 
 
@@ -102,4 +100,9 @@ def cart(request, total=0, quantity=0, cart_items=None):
         'cart_items': cart_items,
     }
     return render(request, 'store/cart.html', context)
+
+
+
+
+
 

@@ -43,8 +43,8 @@
                             </ul>
                         </li>
                         <li style="margin-left: 50px;width: 500px;">
-                            <form class="d-flex me-lg-5 input-group" action="" method="get">
-                                <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                            <form class="d-flex me-lg-5 input-group" action="{% url 'search' %}" method="get">
+                                <input class="form-control me-2" type="search" name="product_name" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success btn-sm" type="submit"><i class="bi bi-search"></i></button>
                             </form>
                         </li>                     

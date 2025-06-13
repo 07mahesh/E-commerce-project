@@ -34,18 +34,24 @@ def product_detail_page(request, category_slug, product_slug):
     except product.DoesNotExist:
         raise Http404("Product not found.")
     except Exception as e:
-        # Debugging information
         print(f"Error occurred: {e}")
         raise e
     context={
         'single_product': single_product,
         'in_cart':in_cart,
         'related_products': related_products
-
     }
 
     return render(request, 'store/product_detail.html', context)
 
+
+
+def search_view(request):
+    product_name = request.GET.get('product_name')
+    results = []
+    if  product_name:
+       results = product.objects.filter(product_name__icontains=product_name)
+    return render(request, 'store/search_items.html', {'results': results, 'product_name': product_name})
 
 
 
